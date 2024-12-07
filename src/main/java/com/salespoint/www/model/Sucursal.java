@@ -24,11 +24,11 @@ public class Sucursal {
 
 	@Column(length = 50, nullable = false, unique = true)
 	private String nombreSucursal;
-	@Column(length = 100)
+	@Column(length = 100, nullable = false)
 	private String calleSucursal;
-	@Column(length = 50)
+	@Column(length = 50, nullable = false)
 	private String ciudadSucursal;
-	@Column(length = 50)
+	@Column(length = 50, nullable = false)
 	private String estadoSucursal;
 	@Column(length = 10)
 	private String telefonoSucursal;
