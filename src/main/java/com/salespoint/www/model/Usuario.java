@@ -1,7 +1,8 @@
 package com.salespoint.www.model;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -21,17 +22,19 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Short idUsuario;
 
+	@Column(length = 20, nullable = false, unique = true)
     private String nombreUsuario;
 
+	@Column(length = 100, nullable = false, unique = true)
     private String passwordUsuario;
 
-    private Date createdAt;
+    private LocalDateTime createdAt;
 
-    private Date updatedAt;
+    private LocalDateTime updatedAt;
 
-    private Date deletedAt;
+    private LocalDateTime deletedAt;
 
-    @JoinColumn(name = "rol_id_rol", referencedColumnName = "id_rol")
+    @JoinColumn(name = "rolIdRol", referencedColumnName = "idRol")
     @ManyToOne(optional = false)
     private Rol rolIdRol;
 }

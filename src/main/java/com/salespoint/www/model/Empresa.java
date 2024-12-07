@@ -1,9 +1,11 @@
 package com.salespoint.www.model;
 
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.Date;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,21 +24,24 @@ public class Empresa {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Short idEmpresa;
     
+    @Column(length = 50, nullable = false, unique = true)
     private String nombreEmpresa;
 
+    @Column(length = 100, nullable = false, unique = true)
     private String direccionEmpresa;
 
+    @Column(length = 10)
     private String telefonoEmpresa;
 
+    @Column(length = 20, nullable = false, unique = true)
     private String rfcEmpresa;
 
-    private Date createdAt;
+    private LocalDateTime createdAt;
 
-    private Date updatedAt;
+    private LocalDateTime updatedAt;
 
-    private Date deletedAt;
+    private LocalDateTime deletedAt;
     
-    private int datsonulo;
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "empresaIdEmpresa")
     private Collection<Sucursal> sucursalCollection;

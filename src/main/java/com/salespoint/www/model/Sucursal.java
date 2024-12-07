@@ -34,7 +34,7 @@ public class Sucursal {
 	private String telefonoSucursal;
 	@Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT false")
 	private boolean estatusSucursal;
-	@Column(nullable = false)
+	
 	private LocalDateTime createdAt;
 
 	private LocalDateTime updatedAt;
