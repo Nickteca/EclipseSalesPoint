@@ -36,6 +36,8 @@ public class Empresa {
 
     private Date deletedAt;
     
+    private int datsonulo;
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "empresaIdEmpresa")
     private Collection<Sucursal> sucursalCollection;
 }
