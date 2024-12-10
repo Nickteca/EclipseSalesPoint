@@ -2,7 +2,6 @@ package com.salespoint.www.model;
 
 import java.util.Collection;
 
-import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -18,16 +17,14 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Rol {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Basic(optional = false)
-    @Column(nullable = false)
-	private Short idRol;
-	
-	@Column(nullable = false, unique = true, length = 20)
-	private String nombreRol;
+public class Categoria {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Short idCategoria;
 
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "rolIdRol")
-	private Collection<Usuario> usuarioCollection;
+    @Column(length = 20, nullable = false, unique = true)
+    private String nombreCategoria;
+    
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "categoriaIdCategoria")
+    private Collection<Producto> productoCollection;
 }

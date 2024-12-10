@@ -2,8 +2,8 @@ package com.salespoint.www.model;
 
 import java.time.LocalDateTime;
 import java.util.Collection;
-import java.util.Date;
 
+import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -19,31 +19,26 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Empresa {
+public class Gasto {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Short idEmpresa;
+    @Basic(optional = false)
+    @Column(nullable = false)
+    private Integer idGastos;
     
-    @Column(length = 50, nullable = false, unique = true)
-    private String nombreEmpresa;
-
-    @Column(length = 100, nullable = false, unique = true)
-    private String direccionEmpresa;
-
-    @Column(length = 10)
-    private String telefonoEmpresa;
-
-    @Column(length = 20, nullable = false, unique = true)
-    private String rfcEmpresa;
-
+    @Basic(optional = false)
+    @Column(nullable = false, length = 100)
+    private String descripcionGasto;
+    
+    @Basic(optional = false)
     @Column(nullable = false)
     private LocalDateTime createdAt;
-
+    
+    @Basic(optional = true)
+    @Column(nullable = false)
     private LocalDateTime updatedAt;
-
-    private LocalDateTime deletedAt;
     
-    
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "empresaIdEmpresa")
-    private Collection<Sucursal> sucursalCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "gastoIdGastos")
+    private Collection<GastoSucursal> gastoSucursalCollection;
 }

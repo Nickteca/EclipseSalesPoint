@@ -1,7 +1,5 @@
 package com.salespoint.www.model;
 
-import java.time.LocalDateTime;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -17,25 +15,22 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Usuario {
+public class Paquete {
+
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Short idUsuario;
-
-	@Column(length = 20, nullable = false, unique = true)
-    private String nombreUsuario;
-
-	@Column(length = 100, nullable = false, unique = true)
-    private String passwordUsuario;
-
-	@Column(nullable = false)
-    private LocalDateTime createdAt;
-
-    private LocalDateTime updatedAt;
-
-    private LocalDateTime deletedAt;
-
-    @JoinColumn(name = "rolIdRol", referencedColumnName = "idRol")
+    private Integer idPaquete;
+	
+    @Column(nullable = false)
+    private float unidades;
+    
+    @JoinColumn(name = "paqueteIdProducto", referencedColumnName = "idProducto")
     @ManyToOne(optional = false)
-    private Rol rolIdRol;
+    @Column(nullable = false)
+    private Producto paqueteIdProducto;
+    
+    @JoinColumn(name = "productoIdProducto", referencedColumnName = "idProducto")
+    @ManyToOne(optional = false)
+    @Column(nullable = false)
+    private Producto productoIdProducto;
 }
