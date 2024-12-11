@@ -1,5 +1,6 @@
 package com.salespoint.www.model;
 
+import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -19,6 +20,8 @@ public class Paquete {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Basic(optional = false)
+    @Column(nullable = false)
     private Integer idPaquete;
 	
     @Column(nullable = false)
@@ -26,11 +29,9 @@ public class Paquete {
     
     @JoinColumn(name = "paqueteIdProducto", referencedColumnName = "idProducto")
     @ManyToOne(optional = false)
-    @Column(nullable = false)
     private Producto paqueteIdProducto;
     
     @JoinColumn(name = "productoIdProducto", referencedColumnName = "idProducto")
     @ManyToOne(optional = false)
-    @Column(nullable = false)
     private Producto productoIdProducto;
 }

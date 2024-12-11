@@ -3,6 +3,7 @@ package com.salespoint.www.model;
 import java.time.LocalDateTime;
 import java.util.Collection;
 
+import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -24,6 +25,8 @@ public class Producto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(nullable = false)
     private Integer idProducto;
     
     @Column(length = 60, nullable = false, unique = true)
@@ -41,8 +44,10 @@ public class Producto {
     @Column(nullable = false)
     private LocalDateTime createdAt;
 
+    @Column(nullable = true)
     private LocalDateTime updatedAt;
 
+    @Column(nullable = true)
     private LocalDateTime deletedAt;
     
     @JoinColumn(name = "categoriaIdCategoria", referencedColumnName = "idCategoria")

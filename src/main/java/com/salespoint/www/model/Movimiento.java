@@ -52,11 +52,9 @@ public class Movimiento {
     
     @JoinColumn(name = "sucursalIdSucursal", referencedColumnName = "idSucursal")
     @ManyToOne(optional = false)
-    @Column(nullable = false)
     private Sucursal sucursalIdSucursal;
     
     @JoinColumn(name = "destinoIdSucursal", referencedColumnName = "idSucursal")
     @ManyToOne
-    @Column(nullable = true)
     private Sucursal destinoIdSucursal;
 }

@@ -31,8 +31,10 @@ public class Usuario {
 	@Column(nullable = false)
     private LocalDateTime createdAt;
 
+	@Column(nullable = true)
     private LocalDateTime updatedAt;
 
+	@Column(nullable = true)
     private LocalDateTime deletedAt;
 
     @JoinColumn(name = "rolIdRol", referencedColumnName = "idRol")

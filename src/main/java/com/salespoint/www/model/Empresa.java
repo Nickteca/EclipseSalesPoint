@@ -2,8 +2,8 @@ package com.salespoint.www.model;
 
 import java.time.LocalDateTime;
 import java.util.Collection;
-import java.util.Date;
 
+import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -22,6 +22,8 @@ import lombok.NoArgsConstructor;
 public class Empresa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(nullable = false)
     private Short idEmpresa;
     
     @Column(length = 50, nullable = false, unique = true)
@@ -39,8 +41,10 @@ public class Empresa {
     @Column(nullable = false)
     private LocalDateTime createdAt;
 
+    @Column(nullable = true)
     private LocalDateTime updatedAt;
 
+    @Column(nullable = true)
     private LocalDateTime deletedAt;
     
     

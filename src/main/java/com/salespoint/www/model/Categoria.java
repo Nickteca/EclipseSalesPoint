@@ -2,6 +2,7 @@ package com.salespoint.www.model;
 
 import java.util.Collection;
 
+import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -20,6 +21,8 @@ import lombok.NoArgsConstructor;
 public class Categoria {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(nullable = false)
     private Short idCategoria;
 
     @Column(length = 20, nullable = false, unique = true)

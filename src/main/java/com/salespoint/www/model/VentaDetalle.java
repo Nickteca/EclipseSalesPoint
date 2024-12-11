@@ -38,11 +38,9 @@ public class VentaDetalle {
     
     @JoinColumn(name = "sucursalProductoIdSucursalProducto", referencedColumnName = "idSucursalProducto")
     @ManyToOne(optional = false)
-    @Column(nullable = false)
     private SucursalProducto sucursalProductoIdSucursalProducto;
     
     @JoinColumn(name = "ventaIdVenta", referencedColumnName = "idVenta")
     @ManyToOne(optional = false)
-    @Column(nullable = false)
     private Venta ventaIdVenta;
 }
